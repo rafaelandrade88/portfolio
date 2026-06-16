@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rafao · Dev Portfolio</title>
+    <meta name="description"
+        content="Portfólio de desenvolvimento de Rafael — apps modernos em PWA, Python, Firebase e muito mais." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-void: #050A14;
+            --bg-deep: #0A1628;
+            --bg-card: rgba(13, 27, 42, 0.75);
+            --accent-cyan: #00D9FF;
+            --accent-purple: #7B2FBE;
+            --accent-orange: #FF6B35;
+            --accent-green: #00FF88;
+            --text-primary: #E8F0FE;
+            --text-secondary: #8B9EC4;
+            --text-muted: #4A5C7A;
+            --border-glow: rgba(0, 217, 255, 0.18);
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-void);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ─── STARFIELD ─────────────────────────────────── */
+        #starfield {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ─── NEBULA BG ──────────────────────────────────── */
+        .nebula-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse 70% 60% at 15% 20%, rgba(123, 47, 190, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 85% 80%, rgba(0, 217, 255, 0.08) 0%, transparent 55%),
+                radial-gradient(ellipse 40% 50% at 60% 10%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
+        }
+
+        /* ─── NAV ────────────────────────────────────────── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.2rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(5, 10, 20, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 217, 255, 0.08);
+            transition: background 0.3s;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--accent-cyan);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent-cyan);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ─── MAIN CONTENT ───────────────────────────────── */
+        .content {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ─── HERO ───────────────────────────────────────── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .hero-inner {
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 100px;
+            padding: 0.4rem 1rem;
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            animation: fadeInDown 0.8s ease both;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+            animation: pulse-dot 2s infinite;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.9s 0.1s ease both;
+        }
+
+        .hero-title .name {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 60%, var(--accent-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-secondary);
+            font-weight: 300;
+            line-height: 1.7;
+            max-width: 580px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 0.9s 0.2s ease both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.9s 0.3s ease both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.25s;
+            cursor: pointer;
+            border: none;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: #fff;
+            box-shadow: 0 4px 24px rgba(0, 217, 255, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0, 217, 255, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid rgba(139, 158, 196, 0.3);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        /* ─── STATS ───────────────────────────────────────── */
+        .stats {
+            padding: 3rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .stat-card:hover {
+            border-color: rgba(0, 217, 255, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.4rem;
+        }
+
+        /* ─── SECTION ─────────────────────────────────────── */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--accent-cyan);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 520px;
+            margin-bottom: 3rem;
+        }
+
+        /* ─── PROJECT CARDS ───────────────────────────────── */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            position: relative;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            overflow: hidden;
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 50% at 50% 0%, var(--card-glow, rgba(0, 217, 255, 0.06)) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            border-color: var(--card-accent, var(--accent-cyan));
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--card-accent, var(--accent-cyan)), inset 0 0 40px var(--card-glow, rgba(0, 217, 255, 0.04));
+        }
+
+        /* Card color themes */
+        .card-bible {
+            --card-accent: #FFD700;
+            --card-glow: rgba(255, 215, 0, 0.07);
+        }
+
+        .card-run {
+            --card-accent: #00FF88;
+            --card-glow: rgba(0, 255, 136, 0.07);
+        }
+
+        .card-gym {
+            --card-accent: #FF6B35;
+            --card-glow: rgba(255, 107, 53, 0.07);
+        }
+
+        .card-fin {
+            --card-accent: #00D9FF;
+            --card-glow: rgba(0, 217, 255, 0.07);
+        }
+
+        .card-copa {
+            --card-accent: #7B2FBE;
+            --card-glow: rgba(123, 47, 190, 0.08);
+        }
+
+        .card-icon {
+            font-size: 2.4rem;
+            line-height: 1;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .card-tag {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            padding: 0.25rem 0.7rem;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--card-accent, var(--accent-cyan));
+            border: 1px solid var(--card-accent, var(--accent-cyan));
+            opacity: 0.85;
+            white-space: nowrap;
+            letter-spacing: 0.05em;
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            flex-grow: 1;
+        }
+
+        .card-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.25rem;
+        }
+
+        .tech-pill {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            padding: 0.2rem 0.6rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            color: var(--text-muted);
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: auto;
+        }
+
+        .card-status {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            color: var(--accent-green);
+        }
+
+        .card-status::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0 0 6px var(--accent-green);
+            animation: pulse-dot 2s infinite;
+        }
+
+        .card-link {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--card-accent, var(--accent-cyan));
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: gap 0.2s;
+        }
+
+        .card-link svg {
+            transition: transform 0.2s;
+        }
+
+        .project-card:hover .card-link svg {
+            transform: translate(3px, -3px);
+        }
+
+        /* ─── ABOUT ───────────────────────────────────────── */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .about-text p strong {
+            color: var(--text-primary);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .skill-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .skill-row-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.82rem;
+        }
+
+        .skill-name {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .skill-pct {
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+        }
+
+        .skill-bar {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 100px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            border-radius: 100px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            transform-origin: left;
+            animation: growBar 1.2s ease both;
+        }
+
+        /* ─── CONTACT ─────────────────────────────────────── */
+        .contact-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 24px;
+            padding: 3rem;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        /* ─── FOOTER ─────────────────────────────────────── */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        footer span {
+            color: var(--accent-cyan);
+        }
+
+        /* ─── SCROLL INDICATOR ───────────────────────────── */
+        .scroll-hint {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-arrow {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, transparent, var(--accent-cyan));
+        }
+
+        /* ─── ANIMATIONS ─────────────────────────────────── */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse-dot {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.5);
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-8px);
+            }
+        }
+
+        @keyframes growBar {
+            from {
+                width: 0;
+            }
+        }
+
+        /* ─── SCROLL REVEAL ──────────────────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ─── RESPONSIVE: NOTEBOOK / SMALL LAPTOP (≤1280px) ── */
+        @media (max-width: 1280px) {
+            .section {
+                max-width: 960px;
+            }
+
+            .stats {
+                max-width: 960px;
+            }
+        }
+
+        /* ─── RESPONSIVE: TABLET (≤1024px) ───────────────── */
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+
+            .hero-title {
+                font-size: clamp(2.4rem, 6vw, 4rem);
+            }
+
+            .section {
+                padding: 4rem 1.75rem;
+            }
+
+            .stats {
+                padding: 2.5rem 1.75rem;
+            }
+        }
+
+        /* ─── RESPONSIVE: TABLET PORTRAIT (≤768px) ───────── */
+        @media (max-width: 768px) {
+
+            /* Nav: esconde links, mantém logo */
+            .nav-links {
+                display: none;
+            }
+
+            nav {
+                padding: 1rem 1.25rem;
+            }
+
+            /* Hero */
+            .hero {
+                padding: 6.5rem 1.25rem 4rem;
+                text-align: center;
+            }
+
+            .hero-sub {
+                font-size: 1rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .scroll-hint {
+                display: none;
+            }
+
+            /* Grids viram coluna única */
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Copa card: sem span total em tela pequena */
+            .project-card[style*="grid-column"] {
+                grid-column: auto !important;
+                max-width: 100% !important;
+            }
+
+            /* Sections */
+            .section {
+                padding: 3rem 1.25rem;
+            }
+
+            .stats {
+                padding: 1.75rem 1.25rem;
+            }
+
+            .contact-wrapper {
+                padding: 2rem 1.25rem;
+            }
+
+            /* Stats: 2 colunas em tablet portrait */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* Contact buttons */
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-links .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            /* Skills */
+            .skills-list {
+                gap: 0.85rem;
+            }
+        }
+
+        /* ─── RESPONSIVE: MOBILE (≤480px) ────────────────── */
+        @media (max-width: 480px) {
+
+            /* Nav */
+            nav {
+                padding: 0.9rem 1rem;
+            }
+
+            .nav-logo {
+                font-size: 1.1rem;
+            }
+
+            /* Hero */
+            .hero {
+                padding: 6rem 1rem 3.5rem;
+            }
+
+            .hero-badge {
+                font-size: 0.65rem;
+                padding: 0.35rem 0.85rem;
+            }
+
+            .hero-title {
+                font-size: clamp(2rem, 10vw, 2.8rem);
+                letter-spacing: -0.02em;
+            }
+
+            /* Stats: coluna única no mobile pequeno */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+
+            .stat-card {
+                padding: 1.1rem 0.75rem;
+            }
+
+            .stat-number {
+                font-size: 1.75rem;
+            }
+
+            /* Cards */
+            .project-card {
+                padding: 1.5rem;
+                border-radius: 16px;
+            }
+
+            .card-title {
+                font-size: 1.15rem;
+            }
+
+            .card-icon {
+                font-size: 2rem;
+            }
+
+            .card-tech {
+                gap: 0.35rem;
+            }
+
+            .tech-pill {
+                font-size: 0.62rem;
+            }
+
+            /* Section headings */
+            .section-title {
+                font-size: clamp(1.5rem, 7vw, 2rem);
+            }
+
+            /* About */
+            .section {
+                padding: 2.5rem 1rem;
+            }
+
+            .about-text p {
+                font-size: 0.9rem;
+            }
+
+            .skill-name {
+                font-size: 0.78rem;
+            }
+
+            /* Contact */
+            .contact-wrapper {
+                padding: 1.75rem 1rem;
+                border-radius: 16px;
+            }
+
+            /* Cursor glow desliga em touch */
+            .cursor-glow {
+                display: none;
+            }
+        }
+
+        /* ─── TOUCH DEVICES: desliga cursor glow e parallax hint ── */
+        @media (hover: none) and (pointer: coarse) {
+            .cursor-glow {
+                display: none;
+            }
+        }
+
+        /* ─── CURSOR GLOW ────────────────────────────────── */
+        .cursor-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 217, 255, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+            transform: translate(-50%, -50%);
+            transition: left 0.12s ease, top 0.12s ease;
+        }
+
+        /* ─── HAMBURGER ──────────────────────────────────── */
+        .nav-burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 200;
+        }
+
+        .nav-burger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-secondary);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .nav-burger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+            background: var(--accent-cyan);
+        }
+
+        .nav-burger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-burger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+            background: var(--accent-cyan);
+        }
+
+        @media (max-width: 768px) {
+            .nav-burger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(5, 10, 20, 0.97);
+                backdrop-filter: blur(24px);
+                -webkit-backdrop-filter: blur(24px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2.5rem;
+                display: none;
+                z-index: 150;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 1.5rem;
+                color: var(--text-primary);
+            }
+
+            .nav-links a::after {
+                bottom: -6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background layers -->
+    <canvas id="starfield"></canvas>
+    <div class="nebula-bg"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Nav -->
+    <nav>
+        <a href="#" class="nav-logo">ra<span>.</span>dev</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#projetos" onclick="closeMenu()">Projetos</a></li>
+            <li><a href="#sobre" onclick="closeMenu()">Sobre</a></li>
+            <li><a href="#contato" onclick="closeMenu()">Contato</a></li>
+        </ul>
+        <button class="nav-burger" id="burger" aria-label="Menu" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Content -->
+    <main class="content">
+
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="hero-inner">
+                <div class="hero-badge">✦ Sempre construindo algo novo</div>
+                <h1 class="hero-title">
+                    Olá, sou<br><span class="name">Rafael</span>
+                </h1>
+                <p class="hero-sub">
+                    Desenvolvedor Full Stack <span
+                        style="color:var(--accent-purple);font-size:0.75em;font-weight:500;opacity:0.85">(Vibe
+                        Coder)</span> com foco em aplicações web modernas, inteligência artificial aplicada e automação
+                    de processos. Transformo ideias em produtos funcionais, do conceito ao deploy.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projetos" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7" rx="1" />
+                            <rect x="14" y="3" width="7" height="7" rx="1" />
+                            <rect x="3" y="14" width="7" height="7" rx="1" />
+                            <rect x="14" y="14" width="7" height="7" rx="1" />
+                        </svg>
+                        Ver projetos
+                    </a>
+                    <a href="#contato" class="btn btn-outline">Entre em contato</a>
+                </div>
+            </div>
+            <div class="scroll-hint">
+                <span>Scroll</span>
+                <div class="scroll-arrow"></div>
+            </div>
+        </section>
+
+        <!-- STATS -->
+        <div class="stats reveal">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Aplicações publicadas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">PWA</div>
+                    <div class="stat-label">Arquitetura mobile-first</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Projetos em produção</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Projetos em andamento</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <section class="section" id="projetos">
+            <p class="section-label reveal">// projetos</p>
+            <h2 class="section-title reveal">Projetos desenvolvidos</h2>
+            <p class="section-desc reveal">Aplicações reais, em produção, construídas do zero com foco em experiência do
+                usuário, performance e boas práticas de desenvolvimento.</p>
+
+            <div class="projects-grid">
+
+                <!-- Bíblia Sagrada -->
+                <a href="https://rafaelandrade88.github.io/bibliasagrada/biblia-sagrada.html" target="_blank"
+                    rel="noopener" class="project-card card-bible reveal">
+                    <div class="card-header">
+                        <span class="card-icon">📖</span>
+                        <span class="card-tag">PWA</span>
+                    </div>
+                    <div class="card-title">Bíblia Sagrada</div>
+                    <p class="card-desc">Progressive Web App com a Bíblia completa em português, desenvolvida como SPA
+                        de arquivo único. Suporte a leitura offline via Service Worker, busca por texto, sistema de
+                        marcadores e modo escuro.</p>
+                    <div class="card-tech">
+                        <span class="tech-pill">HTML5</span>
+                        <span class="tech-pill">CSS3</span>
+                        <span class="tech-pill">JavaScript</span>
+                        <span class="tech-pill">Service Worker</span>
+                        <span class="tech-pill">IndexedDB</span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-status">Live</span>
+                        <span class="card-link">Acessar <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5">
+                                <path d="M7 17L17 7M17 7H7M17 7v10" />
+                            </svg></span>
+                    </div>
+                </a>
+
+                <!-- PaceRun -->
+                <a href="https://rafaelandrade88.github.io/pacerun/" target="_blank" rel="noopener"
+                    class="project-card card-run reveal">
+                    <div class="card-header">
+                        <span class="card-icon">🏃</span>
+                        <span class="card-tag">PWA · GPS</span>
+                    </div>
+                    <div class="card-title">PaceRun</div>
+                    <p class="card-desc">Aplicativo de rastreamento de corrida com GPS em tempo real integrado ao
+                        OpenStreetMap via Leaflet.js. Calcula pace, distância e histórico de treinos, com análise de
+                        desempenho gerada por inteligência artificial.</p>
+                    <div class="card-tech">
+                        <span class="tech-pill">Leaflet.js</span>
+                        <span class="tech-pill">Geolocation API</span>
+                        <span class="tech-pill">Firebase</span>
+                        <span class="tech-pill">Claude AI</span>
+                        <span class="tech-pill">PWA</span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-status">Live</span>
+                        <span class="card-link">Acessar <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5">
+                                <path d="M7 17L17 7M17 7H7M17 7v10" />
+                            </svg></span>
+                    </div>
+                </a>
+
+                <!-- GymFlow -->
+                <a href="https://rafaelandrade88.github.io/gymflow/" target="_blank" rel="noopener"
+                    class="project-card card-gym reveal">
+                    <div class="card-header">
+                        <span class="card-icon">💪</span>
+                        <span class="card-tag">PWA · Firebase</span>
+                    </div>
+                    <div class="card-title">GymFlow</div>
+                    <p class="card-desc">Plataforma de acompanhamento de treinos com sincronização em nuvem via
+                        Firebase. Registra séries, cargas e evolução ao longo do tempo, com suporte a upload de fotos de
+                        progresso via Cloudinary e visualização de dados em gráficos.</p>
+                    <div class="card-tech">
+                        <span class="tech-pill">Firebase Auth</span>
+                        <span class="tech-pill">Firestore</span>
+                        <span class="tech-pill">Cloudinary</span>
+                        <span class="tech-pill">PWA</span>
+                        <span class="tech-pill">Charts.js</span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-status">Live</span>
+                        <span class="card-link">Acessar <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5">
+                                <path d="M7 17L17 7M17 7H7M17 7v10" />
+                            </svg></span>
+                    </div>
+                </a>
+
+                <!-- FinanceFlow -->
+                <a href="https://rafaelandrade88.github.io/sistema_financeiro/" target="_blank" rel="noopener"
+                    class="project-card card-fin reveal">
+                    <div class="card-header">
+                        <span class="card-icon">💰</span>
+                        <span class="card-tag">PWA · SPA</span>
+                    </div>
+                    <div class="card-title">FinanceFlow</div>
+                    <p class="card-desc">Solução de controle financeiro pessoal e familiar com dashboards interativos,
+                        categorização de despesas, definição de metas e relatórios mensais. Autenticação segura e dados
+                        persistidos em tempo real com Firebase.</p>
+                    <div class="card-tech">
+                        <span class="tech-pill">Firebase</span>
+                        <span class="tech-pill">Firestore</span>
+                        <span class="tech-pill">Chart.js</span>
+                        <span class="tech-pill">PWA</span>
+                        <span class="tech-pill">GitHub Pages</span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-status">Live</span>
+                        <span class="card-link">Acessar <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5">
+                                <path d="M7 17L17 7M17 7H7M17 7v10" />
+                            </svg></span>
+                    </div>
+                </a>
+
+                <!-- Copa do Mundo 2026 -->
+                <a href="https://copadomundo26.streamlit.app/" target="_blank" rel="noopener"
+                    class="project-card card-copa reveal"
+                    style="grid-column: 1 / -1; max-width: 680px; margin: 0 auto; width: 100%;">
+                    <div class="card-header">
+                        <span class="card-icon">⚽</span>
+                        <span class="card-tag">Python · Streamlit</span>
+                    </div>
+                    <div class="card-title">Copa do Mundo 2026 — Dashboard</div>
+                    <p class="card-desc">Dashboard interativo desenvolvido em Python com Streamlit para acompanhamento
+                        da Copa do Mundo 2026. Exibe tabelas de grupos, classificação de artilheiros e estatísticas por
+                        seleção com visualizações dinâmicas via Plotly.</p>
+                    <div class="card-tech">
+                        <span class="tech-pill">Python</span>
+                        <span class="tech-pill">Streamlit</span>
+                        <span class="tech-pill">Pandas</span>
+                        <span class="tech-pill">Plotly</span>
+                        <span class="tech-pill">Data Viz</span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-status">Live</span>
+                        <span class="card-link">Abrir dashboard <svg width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M7 17L17 7M17 7H7M17 7v10" />
+                            </svg></span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="section" id="sobre">
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p class="section-label">// sobre</p>
+                    <h2 class="section-title">Quem está por trás disso?</h2>
+                    <p>Sou Rafael, bacharel em <strong>Sistemas de Informação</strong> e pós-graduado em
+                        <strong>Arquitetura de Software</strong>. Atuo profissionalmente com sistemas corporativos,
+                        administração de banco de dados Oracle e arquitetura de soluções.
+                    </p>
+                    <p>Nos momentos livres, desenvolvo projetos próprios explorando tecnologias modernas — PWAs
+                        offline-first, integrações com IA, automação com n8n e dashboards de dados — sempre com foco em
+                        entregar algo funcional e com boa experiência de uso.</p>
+                    <p>Baseado em <strong>Guarulhos, SP 🇧🇷</strong>. Fora do editor, você me encontra correndo ou
+                        planejando o próximo projeto.</p>
+                    <div style="margin-top:1.5rem">
+                        <a href="#projetos" class="btn btn-outline">Ver projetos →</a>
+                    </div>
+                </div>
+                <div class="skills-list reveal">
+                    <div
+                        style="font-family:var(--font-mono);font-size:0.68rem;color:var(--accent-cyan);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.25rem;opacity:0.7;">
+                        Desenvolvimento</div>
+                    <div class="skill-row">
+                        <div class="skill-row-header">
+                            <span class="skill-name">JavaScript / TypeScript</span>
+                            <span class="skill-pct">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width:95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-row-header">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-pct">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width:90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-row-header">
+                            <span class="skill-name">Firebase / Firestore</span>
+                            <span class="skill-pct">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width:88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-row-header">
+                            <span class="skill-name">Oracle DB / SQL</span>
+                            <span class="skill-pct">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width:85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-row-header">
+                            <span class="skill-name">PWA / Service Workers</span>
+                            <span class="skill-pct">87%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width:87%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-row-header">
+                            <span class="skill-name">Linux / DevOps</span>
+                            <span class="skill-pct">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width:80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-row-header">
+                            <span class="skill-name">n8n / Automação</span>
+                            <span class="skill-pct">82%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width:82%"></div>
+                        </div>
+                    </div>
+
+                    <div
+                        style="font-family:var(--font-mono);font-size:0.68rem;color:var(--accent-purple);letter-spacing:0.12em;text-transform:uppercase;margin-top:1rem;margin-bottom:0.25rem;opacity:0.7;">
+                        Inteligência Artificial</div>
+                    <div class="skill-row">
+                        <div class="skill-row-header">
+                            <span class="skill-name">LLMs</span>
+                            <span class="skill-pct">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill"
+                                style="width:85%;background:linear-gradient(90deg,var(--accent-purple),var(--accent-cyan))">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-row-header">
+                            <span class="skill-name">Prompt Engineering</span>
+                            <span class="skill-pct">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill"
+                                style="width:90%;background:linear-gradient(90deg,var(--accent-purple),var(--accent-cyan))">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-row-header">
+                            <span class="skill-name">Embeddings &amp; Bancos Vetoriais</span>
+                            <span class="skill-pct">78%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill"
+                                style="width:78%;background:linear-gradient(90deg,var(--accent-purple),var(--accent-cyan))">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-row-header">
+                            <span class="skill-name">RAG</span>
+                            <span class="skill-pct">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill"
+                                style="width:80%;background:linear-gradient(90deg,var(--accent-purple),var(--accent-cyan))">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-row-header">
+                            <span class="skill-name">Agentes Autônomos &amp; Tool Calling</span>
+                            <span class="skill-pct">82%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill"
+                                style="width:82%;background:linear-gradient(90deg,var(--accent-purple),var(--accent-cyan))">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-row-header">
+                            <span class="skill-name">Orquestração Multiagente</span>
+                            <span class="skill-pct">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill"
+                                style="width:75%;background:linear-gradient(90deg,var(--accent-purple),var(--accent-cyan))">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-row-header">
+                            <span class="skill-name">Deploy &amp; Automação de IA</span>
+                            <span class="skill-pct">83%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill"
+                                style="width:83%;background:linear-gradient(90deg,var(--accent-purple),var(--accent-cyan))">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section" id="contato">
+            <div class="contact-wrapper reveal">
+                <p class="section-label">// contato</p>
+                <h2 class="section-title" style="margin-bottom:0.75rem">Vamos conversar?</h2>
+                <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;max-width:480px;margin:0 auto">
+                    Estou disponível para colaborações, troca de experiências ou apenas uma boa conversa sobre
+                    tecnologia. Sinta-se à vontade para entrar em contato.
+                </p>
+                <div class="contact-links">
+                    <a href="https://github.com/rafao-dev" target="_blank" rel="noopener" class="btn btn-outline">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="mailto:rafael@email.com" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                        Enviar e-mail
+                    </a>
+                    <a href="https://copadomundo26.streamlit.app/" target="_blank" rel="noopener"
+                        class="btn btn-outline">
+                        ⚽ Copa 2026 Dashboard
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Desenvolvido por Rafael · Guarulhos, SP 🇧🇷 · <span>ra.dev</span> · © 2026</p>
+    </footer>
+
+    <script>
+        /* ─── STARFIELD CANVAS ───────────────────────────── */
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+        let W, H, stars = [], mouse = { x: 0, y: 0 };
+        const STAR_COUNT = 280;
+
+        function resize() {
+            W = canvas.width = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+        }
+
+        function initStars() {
+            stars = [];
+            for (let i = 0; i < STAR_COUNT; i++) {
+                stars.push({
+                    x: Math.random() * W,
+                    y: Math.random() * H,
+                    r: Math.random() * 1.4 + 0.2,
+                    alpha: Math.random() * 0.7 + 0.1,
+                    speed: Math.random() * 0.15 + 0.02,
+                    twinkleSpeed: Math.random() * 0.01 + 0.004,
+                    twinkleDir: Math.random() > 0.5 ? 1 : -1,
+                    layer: Math.random(),   // 0 = deep, 1 = near (for parallax)
+                });
+            }
+        }
+
+        function drawStars(t) {
+            ctx.clearRect(0, 0, W, H);
+
+            const mx = (mouse.x / W - 0.5);
+            const my = (mouse.y / H - 0.5);
+
+            stars.forEach(s => {
+                // Twinkle
+                s.alpha += s.twinkleSpeed * s.twinkleDir;
+                if (s.alpha > 0.9 || s.alpha < 0.05) s.twinkleDir *= -1;
+
+                // Slow drift
+                s.y += s.speed;
+                if (s.y > H + 5) { s.y = -5; s.x = Math.random() * W; }
+
+                // Parallax offset based on mouse
+                const px = s.x + mx * s.layer * 28;
+                const py = s.y + my * s.layer * 28;
+
+                // Color: mix between white and slight cyan for closer stars
+                const hue = s.layer > 0.7 ? `rgba(180, 230, 255, ${s.alpha})` : `rgba(255, 255, 255, ${s.alpha})`;
+
+                ctx.beginPath();
+                ctx.arc(px, py, s.r, 0, Math.PI * 2);
+                ctx.fillStyle = hue;
+                ctx.shadowBlur = s.layer > 0.85 ? 6 : 0;
+                ctx.shadowColor = 'rgba(0, 217, 255, 0.6)';
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            });
+
+            // Draw a few "constellation" lines between nearby stars
+            ctx.strokeStyle = 'rgba(0, 217, 255, 0.04)';
+            ctx.lineWidth = 0.5;
+            for (let i = 0; i < Math.min(stars.length, 60); i++) {
+                for (let j = i + 1; j < Math.min(stars.length, 60); j++) {
+                    const a = stars[i], b = stars[j];
+                    const dist = Math.hypot(a.x - b.x, a.y - b.y);
+                    if (dist < 100) {
+                        ctx.globalAlpha = (1 - dist / 100) * 0.25;
+                        ctx.beginPath();
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(b.x, b.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            ctx.globalAlpha = 1;
+
+            requestAnimationFrame(drawStars);
+        }
+
+        resize();
+        initStars();
+        requestAnimationFrame(drawStars);
+        window.addEventListener('resize', () => { resize(); initStars(); });
+
+        /* ─── HAMBURGER MENU ─────────────────────────────── */
+        function toggleMenu() {
+            const burger = document.getElementById('burger');
+            const links = document.getElementById('navLinks');
+            burger.classList.toggle('open');
+            links.classList.toggle('open');
+            document.body.style.overflow = links.classList.contains('open') ? 'hidden' : '';
+        }
+        function closeMenu() {
+            document.getElementById('burger').classList.remove('open');
+            document.getElementById('navLinks').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        /* ─── MOUSE PARALLAX + CURSOR GLOW ──────────────── */
+        const glow = document.getElementById('cursorGlow');
+        const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+        if (!isTouch) {
+            document.addEventListener('mousemove', e => {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+                glow.style.left = e.clientX + 'px';
+                glow.style.top = e.clientY + 'px';
+            });
+        }
+
+        /* ─── SCROLL REVEAL ──────────────────────────────── */
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach((e, i) => {
+                if (e.isIntersecting) {
+                    setTimeout(() => e.target.classList.add('visible'), i * 60);
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        /* ─── NAV SCROLL STYLE ───────────────────────────── */
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            nav.style.background = window.scrollY > 60
+                ? 'rgba(5, 10, 20, 0.92)'
+                : 'rgba(5, 10, 20, 0.6)';
+        });
+    </script>
+</body>
+
+</html>
