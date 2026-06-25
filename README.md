@@ -2,7 +2,7 @@
 
 Site pessoal desenvolvido para apresentar os projetos que construo nas horas vagas, explorando tecnologias modernas de desenvolvimento web e inteligência artificial.
 
-🔗 **Acesse:** [rafaelandrade88.github.io/portfolio](https://rafaelandrade88.github.io/portfolio)
+🔗 **Acesse:** https://randradedev.netlify.app/
 
 ---
 
