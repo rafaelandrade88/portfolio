@@ -524,7 +524,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
-            align-items: center;
+            align-items: start;
         }
 
         .about-text p {
@@ -538,48 +538,66 @@
             color: var(--text-primary);
         }
 
-        .skills-list {
+        /* ─── CAPABILITIES GRID ──────────────────────────── */
+        .capabilities-grid {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
-        .skill-row {
+        .cap-group {
             display: flex;
             flex-direction: column;
-            gap: 0.4rem;
+            gap: 0.6rem;
         }
 
-        .skill-row-header {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.82rem;
-        }
-
-        .skill-name {
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        .skill-pct {
-            color: var(--text-muted);
+        .cap-group-label {
             font-family: var(--font-mono);
-            font-size: 0.75rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            opacity: 0.7;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .skill-bar {
-            height: 4px;
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 100px;
-            overflow: hidden;
+        .cap-group:nth-child(1) .cap-group-label,
+        .cap-group:nth-child(3) .cap-group-label { color: var(--accent-cyan); }
+        .cap-group:nth-child(2) .cap-group-label,
+        .cap-group:nth-child(4) .cap-group-label { color: var(--accent-purple); }
+
+        .cap-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
-        .skill-fill {
-            height: 100%;
-            border-radius: 100px;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
-            transform-origin: left;
-            animation: growBar 1.2s ease both;
+        .cap-tag {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            padding: 0.3rem 0.75rem;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            color: var(--text-secondary);
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .cap-tag:hover {
+            border-color: rgba(0, 217, 255, 0.3);
+            color: var(--text-primary);
+        }
+
+        .cap-tag.highlight {
+            background: rgba(0, 217, 255, 0.05);
+            border-color: rgba(0, 217, 255, 0.2);
+            color: var(--accent-cyan);
+        }
+
+        .cap-tag.highlight-purple {
+            background: rgba(123, 47, 190, 0.07);
+            border-color: rgba(123, 47, 190, 0.25);
+            color: var(--accent-purple);
         }
 
         /* ─── PROCESS ────────────────────────────────────── */
@@ -814,12 +832,6 @@
 
             50% {
                 transform: translateX(-50%) translateY(-8px);
-            }
-        }
-
-        @keyframes growBar {
-            from {
-                width: 0;
             }
         }
 
@@ -1247,7 +1259,7 @@
 
         <!-- PROJECTS -->
         <section class="section" id="projetos">
-            <p class="section-label reveal">// projetos</p>
+            <p class="section-label reveal">produtos em produção</p>
             <h2 class="section-title reveal">Projetos desenvolvidos</h2>
             <p class="section-desc reveal">Aplicações reais, em produção, construídas do zero com foco em experiência do
                 usuário, performance e boas práticas de desenvolvimento.</p>
@@ -1429,7 +1441,7 @@
 
         <!-- HOW I WORK -->
         <section class="section" id="processo">
-            <p class="section-label reveal">// processo</p>
+            <p class="section-label reveal">como trabalho</p>
             <h2 class="section-title reveal">Como transformo sua ideia em produto</h2>
             <p class="section-desc reveal">Do briefing ao deploy — um processo claro, sem surpresas, com IA acelerando
                 cada etapa.</p>
@@ -1502,7 +1514,7 @@
         <section class="section" id="sobre">
             <div class="about-grid">
                 <div class="about-text reveal">
-                    <p class="section-label">// sobre</p>
+                    <p class="section-label">quem sou</p>
                     <h2 class="section-title">Quem está por trás disso?</h2>
                     <p>Sou Rafael, bacharel em <strong>Sistemas de Informação</strong> e pós-graduado em
                         <strong>Arquitetura de Software</strong>. Atuo profissionalmente com sistemas corporativos,
@@ -1517,154 +1529,56 @@
                         <a href="#projetos" class="btn btn-outline">Ver projetos →</a>
                     </div>
                 </div>
-                <div class="skills-list reveal">
-                    <div
-                        style="font-family:var(--font-mono);font-size:0.68rem;color:var(--accent-cyan);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.25rem;opacity:0.7;">
-                        Desenvolvimento</div>
-                    <div class="skill-row">
-                        <div class="skill-row-header">
-                            <span class="skill-name">JavaScript / TypeScript</span>
-                            <span class="skill-pct">95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="width:95%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-row-header">
-                            <span class="skill-name">Python</span>
-                            <span class="skill-pct">90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="width:90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-row-header">
-                            <span class="skill-name">Firebase / Firestore</span>
-                            <span class="skill-pct">88%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="width:88%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-row-header">
-                            <span class="skill-name">Oracle DB / SQL</span>
-                            <span class="skill-pct">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="width:85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-row-header">
-                            <span class="skill-name">PWA / Service Workers</span>
-                            <span class="skill-pct">87%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="width:87%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-row-header">
-                            <span class="skill-name">Linux / DevOps</span>
-                            <span class="skill-pct">80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="width:80%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-row-header">
-                            <span class="skill-name">n8n / Automação</span>
-                            <span class="skill-pct">82%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="width:82%"></div>
+                <div class="capabilities-grid reveal">
+
+                    <div class="cap-group">
+                        <div class="cap-group-label">Full Stack</div>
+                        <div class="cap-tags">
+                            <span class="cap-tag highlight">JavaScript</span>
+                            <span class="cap-tag highlight">TypeScript</span>
+                            <span class="cap-tag highlight">Python</span>
+                            <span class="cap-tag">HTML5 · CSS3</span>
+                            <span class="cap-tag">REST APIs</span>
+                            <span class="cap-tag">Node.js</span>
                         </div>
                     </div>
 
-                    <div
-                        style="font-family:var(--font-mono);font-size:0.68rem;color:var(--accent-purple);letter-spacing:0.12em;text-transform:uppercase;margin-top:1rem;margin-bottom:0.25rem;opacity:0.7;">
-                        Inteligência Artificial</div>
-                    <div class="skill-row">
-                        <div class="skill-row-header">
-                            <span class="skill-name">LLMs</span>
-                            <span class="skill-pct">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-fill"
-                                style="width:85%;background:linear-gradient(90deg,var(--accent-purple),var(--accent-cyan))">
-                            </div>
+                    <div class="cap-group">
+                        <div class="cap-group-label">Cloud & Dados</div>
+                        <div class="cap-tags">
+                            <span class="cap-tag highlight-purple">Firebase</span>
+                            <span class="cap-tag highlight-purple">Firestore</span>
+                            <span class="cap-tag">Oracle DB</span>
+                            <span class="cap-tag">SQL</span>
+                            <span class="cap-tag">Linux</span>
+                            <span class="cap-tag">n8n</span>
                         </div>
                     </div>
-                    <div class="skill-row">
-                        <div class="skill-row-header">
-                            <span class="skill-name">Prompt Engineering</span>
-                            <span class="skill-pct">90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-fill"
-                                style="width:90%;background:linear-gradient(90deg,var(--accent-purple),var(--accent-cyan))">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-row-header">
-                            <span class="skill-name">Embeddings &amp; Bancos Vetoriais</span>
-                            <span class="skill-pct">78%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-fill"
-                                style="width:78%;background:linear-gradient(90deg,var(--accent-purple),var(--accent-cyan))">
-                            </div>
+
+                    <div class="cap-group">
+                        <div class="cap-group-label">PWA & Mobile</div>
+                        <div class="cap-tags">
+                            <span class="cap-tag highlight">Service Workers</span>
+                            <span class="cap-tag highlight">IndexedDB</span>
+                            <span class="cap-tag">Offline-first</span>
+                            <span class="cap-tag">Geolocation API</span>
+                            <span class="cap-tag">Cloudinary</span>
                         </div>
                     </div>
-                    <div class="skill-row">
-                        <div class="skill-row-header">
-                            <span class="skill-name">RAG</span>
-                            <span class="skill-pct">80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-fill"
-                                style="width:80%;background:linear-gradient(90deg,var(--accent-purple),var(--accent-cyan))">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-row-header">
-                            <span class="skill-name">Agentes Autônomos &amp; Tool Calling</span>
-                            <span class="skill-pct">82%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-fill"
-                                style="width:82%;background:linear-gradient(90deg,var(--accent-purple),var(--accent-cyan))">
-                            </div>
+
+                    <div class="cap-group">
+                        <div class="cap-group-label">Inteligência Artificial</div>
+                        <div class="cap-tags">
+                            <span class="cap-tag highlight-purple">LLMs</span>
+                            <span class="cap-tag highlight-purple">Prompt Engineering</span>
+                            <span class="cap-tag highlight-purple">RAG</span>
+                            <span class="cap-tag highlight-purple">Agentes Autônomos</span>
+                            <span class="cap-tag">Embeddings</span>
+                            <span class="cap-tag">Tool Calling</span>
+                            <span class="cap-tag">Orquestração Multiagente</span>
                         </div>
                     </div>
-                    <div class="skill-row">
-                        <div class="skill-row-header">
-                            <span class="skill-name">Orquestração Multiagente</span>
-                            <span class="skill-pct">75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-fill"
-                                style="width:75%;background:linear-gradient(90deg,var(--accent-purple),var(--accent-cyan))">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-row-header">
-                            <span class="skill-name">Deploy &amp; Automação de IA</span>
-                            <span class="skill-pct">83%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-fill"
-                                style="width:83%;background:linear-gradient(90deg,var(--accent-purple),var(--accent-cyan))">
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </section>
@@ -1672,7 +1586,7 @@
         <!-- CONTACT -->
         <section class="section" id="contato">
             <div class="contact-wrapper reveal">
-                <p class="section-label">// contato</p>
+                <p class="section-label">vamos construir</p>
                 <h2 class="section-title" style="margin-bottom:0.75rem">Pronto para começar?</h2>
                 <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;max-width:480px;margin:0 auto">
                     Me conta o que você quer construir. Respondo em menos de 24h com uma proposta inicial.
@@ -1710,7 +1624,13 @@
     </main>
 
     <footer>
-        <p>Desenvolvido por Rafael · Guarulhos, SP 🇧🇷 · <span>ra.dev</span> · © 2026</p>
+        <p>
+            <a href="#contato" style="color:var(--accent-cyan);text-decoration:none;font-weight:500">Quero meu projeto →</a>
+            <span style="margin:0 1rem;opacity:0.2">|</span>
+            Rafael Andrade · Guarulhos, SP
+            <span style="margin:0 1rem;opacity:0.2">|</span>
+            © 2026
+        </p>
     </footer>
 
     <script>
