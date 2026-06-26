@@ -137,4 +137,4 @@ portfolio/
 
 ---
 
-Desenvolvido por **Rafael Andrade** · Guarulhos, SP
+Desenvolvido por **Rafael Andrade** 
