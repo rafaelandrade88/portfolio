@@ -14,7 +14,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Rafael Andrade · Dev Full Stack & Vibe Coder" />
     <meta name="twitter:description" content="Construo apps modernos com IA integrada — do briefing ao deploy." />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23050A14'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='monospace' font-weight='700' font-size='14' fill='%2300D9FF'>ra</text></svg>" />
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23050A14'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='monospace' font-weight='700' font-size='14' fill='%2300D9FF'>ra</text></svg>" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -628,8 +629,13 @@
             opacity: 0.6;
         }
 
-        .process-card:nth-child(odd) .process-step-num { color: var(--accent-cyan); }
-        .process-card:nth-child(even) .process-step-num { color: var(--accent-purple); }
+        .process-card:nth-child(odd) .process-step-num {
+            color: var(--accent-cyan);
+        }
+
+        .process-card:nth-child(even) .process-step-num {
+            color: var(--accent-purple);
+        }
 
         .process-icon {
             width: 38px;
@@ -641,8 +647,13 @@
             margin-bottom: 1rem;
         }
 
-        .process-card:nth-child(odd) .process-icon { background: rgba(0, 217, 255, 0.08); }
-        .process-card:nth-child(even) .process-icon { background: rgba(123, 47, 190, 0.1); }
+        .process-card:nth-child(odd) .process-icon {
+            background: rgba(0, 217, 255, 0.08);
+        }
+
+        .process-card:nth-child(even) .process-icon {
+            background: rgba(123, 47, 190, 0.1);
+        }
 
         .process-title {
             font-family: var(--font-display);
@@ -665,8 +676,13 @@
             opacity: 0.65;
         }
 
-        .process-card:nth-child(odd) .process-time { color: var(--accent-cyan); }
-        .process-card:nth-child(even) .process-time { color: var(--accent-purple); }
+        .process-card:nth-child(odd) .process-time {
+            color: var(--accent-cyan);
+        }
+
+        .process-card:nth-child(even) .process-time {
+            color: var(--accent-purple);
+        }
 
         @media (max-width: 1024px) {
             .process-grid {
@@ -1046,6 +1062,7 @@
 
         /* ─── REDUCED MOTION ─────────────────────────────── */
         @media (prefers-reduced-motion: reduce) {
+
             *,
             *::before,
             *::after {
@@ -1186,7 +1203,8 @@
                     Construo o app<br>que você imagina —<br><span class="name">com IA no núcleo</span>
                 </h1>
                 <p class="hero-sub">
-                    Para empreendedores e times que precisam de um produto digital funcional e inteligente — do briefing ao deploy, sem precisar de uma equipe inteira.
+                    Para empreendedores e times que precisam de um produto digital funcional e inteligente — do briefing
+                    ao deploy, sem precisar de uma equipe inteira.
                 </p>
                 <div class="hero-cta">
                     <a href="#contato" class="btn btn-primary">
@@ -1241,7 +1259,11 @@
                     class="project-card card-bible reveal">
                     <div class="card-header">
                         <span class="card-icon">
-                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.6" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FFD700"
+                                stroke-width="1.6" aria-hidden="true">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                            </svg>
                         </span>
                         <span class="card-tag">PWA</span>
                     </div>
@@ -1270,7 +1292,11 @@
                     class="project-card card-run reveal">
                     <div class="card-header">
                         <span class="card-icon">
-                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00FF88" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00FF88"
+                                stroke-width="1.6" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
                         </span>
                         <span class="card-tag">PWA · GPS</span>
                     </div>
@@ -1299,7 +1325,14 @@
                     class="project-card card-gym reveal">
                     <div class="card-header">
                         <span class="card-icon">
-                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="1.6" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FF6B35"
+                                stroke-width="1.6" aria-hidden="true">
+                                <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                                <line x1="6" y1="1" x2="6" y2="4" />
+                                <line x1="10" y1="1" x2="10" y2="4" />
+                                <line x1="14" y1="1" x2="14" y2="4" />
+                            </svg>
                         </span>
                         <span class="card-tag">PWA · Firebase</span>
                     </div>
@@ -1328,7 +1361,11 @@
                     class="project-card card-fin reveal">
                     <div class="card-header">
                         <span class="card-icon">
-                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00D9FF" stroke-width="1.6" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00D9FF"
+                                stroke-width="1.6" aria-hidden="true">
+                                <line x1="12" y1="1" x2="12" y2="23" />
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                            </svg>
                         </span>
                         <span class="card-tag">PWA · SPA</span>
                     </div>
@@ -1358,7 +1395,12 @@
                     style="grid-column: 1 / -1; max-width: 680px; margin: 0 auto; width: 100%;">
                     <div class="card-header">
                         <span class="card-icon">
-                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#7B2FBE" stroke-width="1.6" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8l2 2 4-4 2 2"/></svg>
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#7B2FBE"
+                                stroke-width="1.6" aria-hidden="true">
+                                <rect x="2" y="3" width="20" height="14" rx="2" />
+                                <path d="M8 21h8M12 17v4" />
+                                <path d="M7 8l2 2 4-4 2 2" />
+                            </svg>
                         </span>
                         <span class="card-tag">Python · Streamlit</span>
                     </div>
@@ -1389,47 +1431,67 @@
         <section class="section" id="processo">
             <p class="section-label reveal">// processo</p>
             <h2 class="section-title reveal">Como transformo sua ideia em produto</h2>
-            <p class="section-desc reveal">Do briefing ao deploy — um processo claro, sem surpresas, com IA acelerando cada etapa.</p>
+            <p class="section-desc reveal">Do briefing ao deploy — um processo claro, sem surpresas, com IA acelerando
+                cada etapa.</p>
 
             <div class="process-grid">
 
                 <div class="process-card reveal">
                     <div class="process-step-num">01</div>
                     <div class="process-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00D9FF" stroke-width="1.8" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00D9FF" stroke-width="1.8"
+                            aria-hidden="true">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                        </svg>
                     </div>
                     <div class="process-title">Briefing</div>
-                    <p class="process-desc">Entendemos o problema, o público e os objetivos. Sem burocracia — uma conversa objetiva de 30 minutos.</p>
+                    <p class="process-desc">Entendemos o problema, o público e os objetivos. Sem burocracia — uma
+                        conversa objetiva de 30 minutos.</p>
                     <div class="process-time">~ 30 min</div>
                 </div>
 
                 <div class="process-card reveal">
                     <div class="process-step-num">02</div>
                     <div class="process-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7B2FBE" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7B2FBE" stroke-width="1.8"
+                            aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <path d="M3 9h18M9 21V9" />
+                        </svg>
                     </div>
                     <div class="process-title">Prototipagem</div>
-                    <p class="process-desc">Tela funcional em até 3 dias. Você vê e testa antes de aprovar o escopo completo.</p>
+                    <p class="process-desc">Tela funcional em até 3 dias. Você vê e testa antes de aprovar o escopo
+                        completo.</p>
                     <div class="process-time">3 dias</div>
                 </div>
 
                 <div class="process-card reveal">
                     <div class="process-step-num">03</div>
                     <div class="process-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00D9FF" stroke-width="1.8" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00D9FF" stroke-width="1.8"
+                            aria-hidden="true">
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
+                        </svg>
                     </div>
                     <div class="process-title">Desenvolvimento</div>
-                    <p class="process-desc">App completo com IA integrada, autenticação, banco de dados em tempo real e arquitetura PWA.</p>
+                    <p class="process-desc">App completo com IA integrada, autenticação, banco de dados em tempo real e
+                        arquitetura PWA.</p>
                     <div class="process-time">7–14 dias</div>
                 </div>
 
                 <div class="process-card reveal">
                     <div class="process-step-num">04</div>
                     <div class="process-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7B2FBE" stroke-width="1.8" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7B2FBE" stroke-width="1.8"
+                            aria-hidden="true">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
                     </div>
                     <div class="process-title">Deploy + Suporte</div>
-                    <p class="process-desc">No ar com monitoramento ativo. Suporte contínuo para evoluir o produto conforme cresce.</p>
+                    <p class="process-desc">No ar com monitoramento ativo. Suporte contínuo para evoluir o produto
+                        conforme cresce.</p>
                     <div class="process-time">Contínuo</div>
                 </div>
 
@@ -1616,22 +1678,24 @@
                     Me conta o que você quer construir. Respondo em menos de 24h com uma proposta inicial.
                 </p>
                 <div class="contact-links">
-                    <a href="https://github.com/rafao-dev" target="_blank" rel="noopener" class="btn btn-outline">
+                    <a href="https://github.com/rafaelandrade88" target="_blank" rel="noopener" class="btn btn-outline">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path
                                 d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
                         </svg>
                         GitHub
                     </a>
-                    <a href="https://linkedin.com/in/rafael-andrade-dev" target="_blank" rel="noopener" class="btn btn-outline">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <a href="https://www.linkedin.com/in/rafaeldasilvaandrade/" target="_blank" rel="noopener"
+                        class="btn btn-outline">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" aria-hidden="true">
                             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                             <rect x="2" y="9" width="4" height="12" />
                             <circle cx="4" cy="4" r="2" />
                         </svg>
                         LinkedIn
                     </a>
-                    <a href="mailto:sektorjc@gmail.com" class="btn btn-primary">
+                    <a href="mailto:randradedev@outlook.com" class="btn btn-primary">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" aria-hidden="true">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
