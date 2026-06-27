@@ -415,6 +415,30 @@
             --card-glow: rgba(123, 47, 190, 0.08);
         }
 
+        .card-pipoka {
+            --card-accent: #FF9F1C;
+            --card-glow: rgba(255, 159, 28, 0.08);
+        }
+
+        /* ─── SUBSECTION LABEL ───────────────────────────── */
+        .subsection-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.75rem;
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+        }
+
+        .subsection-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(139, 158, 196, 0.18), transparent);
+        }
+
         .card-icon {
             display: flex;
             align-items: center;
@@ -754,9 +778,22 @@
             border-color: var(--svc-accent, rgba(0, 217, 255, 0.35));
         }
 
-        .svc-app { --svc-accent: rgba(0, 217, 255, 0.35); --svc-glow: rgba(0, 217, 255, 0.05); }
-        .svc-auto { --svc-accent: rgba(123, 47, 190, 0.4); --svc-glow: rgba(123, 47, 190, 0.06); border-color: rgba(123, 47, 190, 0.15); }
-        .svc-data { --svc-accent: rgba(255, 107, 53, 0.35); --svc-glow: rgba(255, 107, 53, 0.05); border-color: rgba(255, 107, 53, 0.12); }
+        .svc-app {
+            --svc-accent: rgba(0, 217, 255, 0.35);
+            --svc-glow: rgba(0, 217, 255, 0.05);
+        }
+
+        .svc-auto {
+            --svc-accent: rgba(123, 47, 190, 0.4);
+            --svc-glow: rgba(123, 47, 190, 0.06);
+            border-color: rgba(123, 47, 190, 0.15);
+        }
+
+        .svc-data {
+            --svc-accent: rgba(255, 107, 53, 0.35);
+            --svc-glow: rgba(255, 107, 53, 0.05);
+            border-color: rgba(255, 107, 53, 0.12);
+        }
 
         .service-icon {
             width: 44px;
@@ -767,9 +804,17 @@
             justify-content: center;
         }
 
-        .svc-app .service-icon { background: rgba(0, 217, 255, 0.08); }
-        .svc-auto .service-icon { background: rgba(123, 47, 190, 0.1); }
-        .svc-data .service-icon { background: rgba(255, 107, 53, 0.08); }
+        .svc-app .service-icon {
+            background: rgba(0, 217, 255, 0.08);
+        }
+
+        .svc-auto .service-icon {
+            background: rgba(123, 47, 190, 0.1);
+        }
+
+        .svc-data .service-icon {
+            background: rgba(255, 107, 53, 0.08);
+        }
 
         .service-name {
             font-family: var(--font-display);
@@ -837,14 +882,21 @@
             transition: gap 0.2s;
         }
 
-        .service-cta:hover { gap: 0.55rem; }
+        .service-cta:hover {
+            gap: 0.55rem;
+        }
 
         @media (max-width: 1024px) {
-            .services-grid { grid-template-columns: 1fr; max-width: 480px; }
+            .services-grid {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+            }
         }
 
         @media (max-width: 768px) {
-            .services-grid { max-width: 100%; }
+            .services-grid {
+                max-width: 100%;
+            }
         }
 
         /* ─── AI CHAT WIDGET ─────────────────────────────── */
@@ -874,7 +926,10 @@
             box-shadow: 0 8px 32px rgba(0, 217, 255, 0.45);
         }
 
-        .chat-widget-btn.hidden { opacity: 0; pointer-events: none; }
+        .chat-widget-btn.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
 
         .chat-panel {
             position: fixed;
@@ -913,7 +968,11 @@
             flex-shrink: 0;
         }
 
-        .chat-header-info { display: flex; align-items: center; gap: 0.65rem; }
+        .chat-header-info {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
 
         .chat-avatar {
             width: 32px;
@@ -966,7 +1025,10 @@
             font-size: 1rem;
         }
 
-        .chat-close:hover { color: var(--text-primary); background: rgba(255, 255, 255, 0.06); }
+        .chat-close:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.06);
+        }
 
         .chat-messages {
             flex: 1;
@@ -1051,8 +1113,13 @@
             transition: border-color 0.2s;
         }
 
-        .chat-input:focus { border-color: rgba(0, 217, 255, 0.3); }
-        .chat-input::placeholder { color: var(--text-muted); }
+        .chat-input:focus {
+            border-color: rgba(0, 217, 255, 0.3);
+        }
+
+        .chat-input::placeholder {
+            color: var(--text-muted);
+        }
 
         .chat-send {
             background: rgba(0, 217, 255, 0.08);
@@ -1066,11 +1133,21 @@
             align-items: center;
         }
 
-        .chat-send:hover { background: rgba(0, 217, 255, 0.16); }
+        .chat-send:hover {
+            background: rgba(0, 217, 255, 0.16);
+        }
 
         @media (max-width: 480px) {
-            .chat-panel { width: calc(100vw - 2rem); right: 1rem; bottom: 1rem; }
-            .chat-widget-btn { right: 1rem; bottom: 1rem; }
+            .chat-panel {
+                width: calc(100vw - 2rem);
+                right: 1rem;
+                bottom: 1rem;
+            }
+
+            .chat-widget-btn {
+                right: 1rem;
+                bottom: 1rem;
+            }
         }
 
         /* ─── CONTACT ─────────────────────────────────────── */
@@ -1599,7 +1676,7 @@
         <div class="stats reveal">
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number">5+</div>
+                    <div class="stat-number">6+</div>
                     <div class="stat-label">Apps em produção</div>
                 </div>
                 <div class="stat-card">
@@ -1623,6 +1700,12 @@
             <h2 class="section-title reveal">Projetos desenvolvidos</h2>
             <p class="section-desc reveal">Aplicações reais, em produção, construídas do zero com foco em experiência do
                 usuário, performance e boas práticas de desenvolvimento.</p>
+
+            <!-- SUB: APLICAÇÕES -->
+            <div class="subsection-label reveal">
+                <span>📱 Aplicações</span>
+                <div class="subsection-line"></div>
+            </div>
 
             <div class="projects-grid">
 
@@ -1750,7 +1833,50 @@
                         <span class="tech-pill">Firestore</span>
                         <span class="tech-pill">Chart.js</span>
                         <span class="tech-pill">PWA</span>
-                        <span class="tech-pill">GitHub Pages</span>
+                        <span class="tech-pill">Netlify</span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-status">Live</span>
+                        <span class="card-link">Acessar <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5">
+                                <path d="M7 17L17 7M17 7H7M17 7v10" />
+                            </svg></span>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- SUB: SITES & DASHBOARDS -->
+            <div class="subsection-label reveal" style="margin-top: 3.5rem;">
+                <span>🌐 Sites & Dashboards</span>
+                <div class="subsection-line"></div>
+            </div>
+
+            <div class="projects-grid">
+
+                <!-- Pipokando -->
+                <a href="https://pipokando.vercel.app/" target="_blank" rel="noopener"
+                    class="project-card card-pipoka reveal">
+                    <div class="card-header">
+                        <span class="card-icon">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FF9F1C"
+                                stroke-width="1.6" aria-hidden="true">
+                                <path d="M12 2C8 2 4 5 4 9c0 2.5 1.5 4.5 3 6l1 5h8l1-5c1.5-1.5 3-3.5 3-6 0-4-4-7-8-7z"/>
+                                <line x1="9" y1="20" x2="15" y2="20"/>
+                            </svg>
+                        </span>
+                        <span class="card-tag">Freelance · Next.js</span>
+                    </div>
+                    <div class="card-title">Pipokando by Thaís</div>
+                    <p class="card-desc">Landing page institucional desenvolvida para cliente do segmento de alimentação
+                        artesanal. Apresenta o cardápio, depoimentos de clientes e integração direta com WhatsApp para
+                        conversão de pedidos. Deploy na Vercel com foco em performance e SEO.</p>
+                    <div class="card-tech">
+                        <span class="tech-pill">Next.js</span>
+                        <span class="tech-pill">React</span>
+                        <span class="tech-pill">Tailwind CSS</span>
+                        <span class="tech-pill">Vercel</span>
+                        <span class="tech-pill">SEO</span>
                     </div>
                     <div class="card-footer">
                         <span class="card-status">Live</span>
@@ -1763,8 +1889,7 @@
 
                 <!-- Copa do Mundo 2026 -->
                 <a href="https://copadomundo26.streamlit.app/" target="_blank" rel="noopener"
-                    class="project-card card-copa reveal"
-                    style="grid-column: 1 / -1; max-width: 680px; margin: 0 auto; width: 100%;">
+                    class="project-card card-copa reveal">
                     <div class="card-header">
                         <span class="card-icon">
                             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#7B2FBE"
@@ -1776,7 +1901,7 @@
                         </span>
                         <span class="card-tag">Python · Streamlit</span>
                     </div>
-                    <div class="card-title">Copa do Mundo 2026 — Dashboard</div>
+                    <div class="card-title">Copa do Mundo 2026</div>
                     <p class="card-desc">Dashboard interativo desenvolvido em Python com Streamlit para acompanhamento
                         da Copa do Mundo 2026. Exibe tabelas de grupos, classificação de artilheiros e estatísticas por
                         seleção com visualizações dinâmicas via Plotly.</p>
@@ -1789,7 +1914,7 @@
                     </div>
                     <div class="card-footer">
                         <span class="card-status">Live</span>
-                        <span class="card-link">Abrir dashboard <svg width="14" height="14" viewBox="0 0 24 24"
+                        <span class="card-link">Acessar <svg width="14" height="14" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2.5">
                                 <path d="M7 17L17 7M17 7H7M17 7v10" />
                             </svg></span>
@@ -1874,19 +1999,22 @@
         <section class="section" id="servicos">
             <p class="section-label reveal">o que construo</p>
             <h2 class="section-title reveal">Serviços disponíveis</h2>
-            <p class="section-desc reveal">Três tipos de entrega, cada uma com escopo claro, tecnologia definida e prazo real.</p>
+            <p class="section-desc reveal">Três tipos de entrega, cada uma com escopo claro, tecnologia definida e prazo
+                real.</p>
 
             <div class="services-grid">
 
                 <div class="service-card svc-app reveal">
                     <div class="service-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00D9FF" stroke-width="1.7" aria-hidden="true">
-                            <rect x="2" y="3" width="20" height="14" rx="2"/>
-                            <path d="M8 21h8M12 17v4"/>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00D9FF" stroke-width="1.7"
+                            aria-hidden="true">
+                            <rect x="2" y="3" width="20" height="14" rx="2" />
+                            <path d="M8 21h8M12 17v4" />
                         </svg>
                     </div>
                     <div class="service-name">App Web + IA</div>
-                    <p class="service-desc">PWA completo com inteligência artificial no núcleo — análise, geração de conteúdo ou respostas contextuais integradas à experiência do usuário.</p>
+                    <p class="service-desc">PWA completo com inteligência artificial no núcleo — análise, geração de
+                        conteúdo ou respostas contextuais integradas à experiência do usuário.</p>
                     <ul class="service-includes">
                         <li>Autenticação e banco de dados em tempo real</li>
                         <li>Integração com Claude AI ou OpenAI</li>
@@ -1897,21 +2025,26 @@
                         <span class="service-time">⌀ 14 dias</span>
                         <a href="#contato" class="service-cta">
                             Solicitar
-                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" aria-hidden="true">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
                         </a>
                     </div>
                 </div>
 
                 <div class="service-card svc-auto reveal">
                     <div class="service-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7B2FBE" stroke-width="1.7" aria-hidden="true">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                            <path d="M2 17l10 5 10-5"/>
-                            <path d="M2 12l10 5 10-5"/>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7B2FBE" stroke-width="1.7"
+                            aria-hidden="true">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                            <path d="M2 17l10 5 10-5" />
+                            <path d="M2 12l10 5 10-5" />
                         </svg>
                     </div>
                     <div class="service-name">Automação Inteligente</div>
-                    <p class="service-desc">Workflows com n8n que conectam suas ferramentas, eliminam trabalho manual repetitivo e adicionam IA nos pontos certos do processo.</p>
+                    <p class="service-desc">Workflows com n8n que conectam suas ferramentas, eliminam trabalho manual
+                        repetitivo e adicionam IA nos pontos certos do processo.</p>
                     <ul class="service-includes">
                         <li>Mapeamento do processo atual</li>
                         <li>Automação com n8n + webhooks</li>
@@ -1922,21 +2055,26 @@
                         <span class="service-time">⌀ 7 dias</span>
                         <a href="#contato" class="service-cta">
                             Solicitar
-                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" aria-hidden="true">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
                         </a>
                     </div>
                 </div>
 
                 <div class="service-card svc-data reveal">
                     <div class="service-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="1.7" aria-hidden="true">
-                            <line x1="18" y1="20" x2="18" y2="10"/>
-                            <line x1="12" y1="20" x2="12" y2="4"/>
-                            <line x1="6" y1="20" x2="6" y2="14"/>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="1.7"
+                            aria-hidden="true">
+                            <line x1="18" y1="20" x2="18" y2="10" />
+                            <line x1="12" y1="20" x2="12" y2="4" />
+                            <line x1="6" y1="20" x2="6" y2="14" />
                         </svg>
                     </div>
                     <div class="service-name">Dashboard de Dados</div>
-                    <p class="service-desc">Visualização interativa dos seus dados em Python com Streamlit e Plotly — relatórios que atualizam sozinhos e revelam o que os números escondem.</p>
+                    <p class="service-desc">Visualização interativa dos seus dados em Python com Streamlit e Plotly —
+                        relatórios que atualizam sozinhos e revelam o que os números escondem.</p>
                     <ul class="service-includes">
                         <li>Conexão com sua fonte de dados</li>
                         <li>Gráficos interativos com Plotly</li>
@@ -1947,7 +2085,10 @@
                         <span class="service-time">⌀ 10 dias</span>
                         <a href="#contato" class="service-cta">
                             Solicitar
-                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" aria-hidden="true">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
                         </a>
                     </div>
                 </div>
@@ -2070,8 +2211,9 @@
 
     <!-- AI CHAT WIDGET -->
     <button class="chat-widget-btn" id="chatWidgetBtn" aria-label="Abrir assistente">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
         </svg>
         Fale com a IA
     </button>
@@ -2089,7 +2231,8 @@
         </div>
 
         <div class="chat-messages" id="chatMessages">
-            <div class="chat-bubble bot">Olá! Sou o assistente do Rafael. Posso te contar sobre os serviços, prazos e tecnologias. O que você quer saber?</div>
+            <div class="chat-bubble bot">Olá! Sou o assistente do Rafael. Posso te contar sobre os serviços, prazos e
+                tecnologias. O que você quer saber?</div>
         </div>
 
         <div class="chat-chips">
@@ -2101,11 +2244,13 @@
         </div>
 
         <div class="chat-input-row">
-            <input class="chat-input" id="chatInput" type="text" placeholder="Escreva sua pergunta..." autocomplete="off" />
+            <input class="chat-input" id="chatInput" type="text" placeholder="Escreva sua pergunta..."
+                autocomplete="off" />
             <button class="chat-send" id="chatSend" aria-label="Enviar mensagem">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                    <line x1="22" y1="2" x2="11" y2="13"/>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    aria-hidden="true">
+                    <line x1="22" y1="2" x2="11" y2="13" />
+                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
                 </svg>
             </button>
         </div>
