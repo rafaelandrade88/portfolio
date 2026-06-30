@@ -425,16 +425,26 @@
             --card-glow: rgba(201, 169, 110, 0.08);
         }
 
+        .card-meconti {
+            --card-accent: #2ECC71;
+            --card-glow: rgba(46, 204, 113, 0.08);
+        }
+
+        .card-mvv {
+            --card-accent: #5B8DEF;
+            --card-glow: rgba(91, 141, 239, 0.08);
+        }
+
         /* ─── SUBSECTION LABEL ───────────────────────────── */
         .subsection-label {
             display: flex;
             align-items: center;
             gap: 0.75rem;
             margin-bottom: 1.75rem;
-            font-family: var(--font-display);
+            font-family: var(--font-display, inherit);
             font-size: 0.95rem;
             font-weight: 600;
-            color: var(--text-secondary);
+            color: var(--text-secondary, #8B9EC4);
             letter-spacing: 0.02em;
         }
 
@@ -1681,7 +1691,7 @@
         <div class="stats reveal">
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number">7+</div>
+                    <div class="stat-number">9+</div>
                     <div class="stat-label">Apps em produção</div>
                 </div>
                 <div class="stat-card">
@@ -1706,7 +1716,6 @@
             <p class="section-desc reveal">Aplicações reais, em produção, construídas do zero com foco em experiência do
                 usuário, performance e boas práticas de desenvolvimento.</p>
 
-            <!-- SUB: APLICAÇÕES -->
             <div class="subsection-label reveal">
                 <span>📱 Aplicações</span>
                 <div class="subsection-line"></div>
@@ -1866,19 +1875,90 @@
                         <span class="card-icon">
                             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C9A96E"
                                 stroke-width="1.6" aria-hidden="true">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                             </svg>
                         </span>
                         <span class="card-tag">Freelance · Next.js</span>
                     </div>
                     <div class="card-title">CWN Studio Hair</div>
-                    <p class="card-desc">Site institucional premium para barbearia e studio de beleza em Guarulhos. Apresenta equipe, serviços, galeria e agendamento direto pelo WhatsApp. Desenvolvido em Next.js com Sanity CMS, animações com Framer Motion e GSAP, SEO técnico completo e deploy na Vercel.</p>
+                    <p class="card-desc">Site institucional premium para barbearia e studio de beleza em Guarulhos.
+                        Apresenta equipe, serviços, galeria e agendamento direto pelo WhatsApp. Desenvolvido em Next.js
+                        com Sanity CMS, animações com Framer Motion e GSAP, SEO técnico completo e deploy na Vercel.</p>
                     <div class="card-tech">
                         <span class="tech-pill">Next.js 15</span>
                         <span class="tech-pill">Sanity CMS</span>
                         <span class="tech-pill">Framer Motion</span>
                         <span class="tech-pill">GSAP</span>
                         <span class="tech-pill">Vercel</span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-status">Live</span>
+                        <span class="card-link">Acessar <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5">
+                                <path d="M7 17L17 7M17 7H7M17 7v10" />
+                            </svg></span>
+                    </div>
+                </a>
+
+                <!-- Me Conti+ Contabilidade -->
+                <a href="https://me-conti-site.vercel.app/" target="_blank" rel="noopener"
+                    class="project-card card-meconti reveal">
+                    <div class="card-header">
+                        <span class="card-icon">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2ECC71"
+                                stroke-width="1.6" aria-hidden="true">
+                                <path d="M3 21h18" />
+                                <path d="M5 21V7l8-4 8 4v14" />
+                                <path d="M9 9v8M15 9v8" />
+                            </svg>
+                        </span>
+                        <span class="card-tag">Freelance · Next.js · Em desenvolvimento</span>
+                    </div>
+                    <div class="card-title">Me Conti+ Contabilidade</div>
+                    <p class="card-desc">Site institucional para escritório de contabilidade digital focado em
+                        prestadores de serviço. Apresenta planos de abertura de empresa, jornada do cliente em etapas,
+                        catálogo completo de serviços contábeis e integração com WhatsApp. Projeto em desenvolvimento
+                        ativo.</p>
+                    <div class="card-tech">
+                        <span class="tech-pill">Next.js</span>
+                        <span class="tech-pill">React</span>
+                        <span class="tech-pill">Tailwind CSS</span>
+                        <span class="tech-pill">Vercel</span>
+                        <span class="tech-pill">SEO</span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-status">Live</span>
+                        <span class="card-link">Acessar <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5">
+                                <path d="M7 17L17 7M17 7H7M17 7v10" />
+                            </svg></span>
+                    </div>
+                </a>
+
+                <!-- MVV Mídia -->
+                <a href="https://mvv-midia.vercel.app/" target="_blank" rel="noopener"
+                    class="project-card card-mvv reveal">
+                    <div class="card-header">
+                        <span class="card-icon">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#5B8DEF"
+                                stroke-width="1.6" aria-hidden="true">
+                                <rect x="2" y="7" width="20" height="14" rx="2" />
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                            </svg>
+                        </span>
+                        <span class="card-tag">Python · FastAPI</span>
+                    </div>
+                    <div class="card-title">MVV Mídia — Culto Noite</div>
+                    <p class="card-desc">Sistema de gestão de mídia para equipe de igreja, com autenticação de usuários
+                        e painel administrativo dedicado ao gerenciamento de cultos e conteúdo audiovisual. Backend em
+                        FastAPI com integração Firebase, deploy na Vercel.</p>
+                    <div class="card-tech">
+                        <span class="tech-pill">FastAPI</span>
+                        <span class="tech-pill">Python</span>
+                        <span class="tech-pill">Firebase</span>
+                        <span class="tech-pill">Vercel</span>
+                        <span class="tech-pill">Auth</span>
                     </div>
                     <div class="card-footer">
                         <span class="card-status">Live</span>
@@ -1896,8 +1976,9 @@
                         <span class="card-icon">
                             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FF9F1C"
                                 stroke-width="1.6" aria-hidden="true">
-                                <path d="M12 2C8 2 4 5 4 9c0 2.5 1.5 4.5 3 6l1 5h8l1-5c1.5-1.5 3-3.5 3-6 0-4-4-7-8-7z"/>
-                                <line x1="9" y1="20" x2="15" y2="20"/>
+                                <path
+                                    d="M12 2C8 2 4 5 4 9c0 2.5 1.5 4.5 3 6l1 5h8l1-5c1.5-1.5 3-3.5 3-6 0-4-4-7-8-7z" />
+                                <line x1="9" y1="20" x2="15" y2="20" />
                             </svg>
                         </span>
                         <span class="card-tag">Freelance · Next.js</span>
@@ -1949,8 +2030,8 @@
                     </div>
                     <div class="card-footer">
                         <span class="card-status">Live</span>
-                        <span class="card-link">Acessar <svg width="14" height="14" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2.5">
+                        <span class="card-link">Acessar <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5">
                                 <path d="M7 17L17 7M17 7H7M17 7v10" />
                             </svg></span>
                     </div>
